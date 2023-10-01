@@ -16,6 +16,16 @@ let btnStartEl = document.querySelector("#start-game");
 let btnGoBackEl = document.querySelector("#start-again")
 let btnClearScoresEl = document.querySelector("#clear-scores")
 
+let score = 0;
+let timeleft;
+let gameover
+timerEl.innerText = 0;
+
+let HighScores = [];
+
+let arrayShuffledQuestions
+let QuestionIndex = 0
+
 
 
 
@@ -45,3 +55,38 @@ let questions = [
           choices: [{choice: "1. +="}, {choice: "2. ||"}, {choice: "3. *="}, {choice: "4. ="}]
     },
 ]
+
+let setTime = function () {
+    timeleft = 30;
+
+let timercheck = setInterval(function() {
+    timerEl.innerText = timeleft;
+    timeleft--
+
+    if (gameover) {
+        clearInterval(timercheck)
+    }
+   
+    if (timeleft < 0) {
+        showScore()
+        timerEl.innerText = 0
+        clearInterval(timercheck)
+    }
+
+    }, 1000)
+}
+
+let startGame = function() {
+    containerStartEl.classList.add("hide");
+    containerStartEl.classList.remove("show");
+    containerQuestionEl.classList.remove("hide");
+    containerQuestionEl.classList.add("show");
+    arrayShuffledQuestions = questions.sort(() => Math.random() - 0.5)
+    setTime()
+    setQuestion()
+  }
+
+  let setQuestion = function() {
+    resetAnswers()
+    displayQuestion(arrayShuffledQuestions[QuestionIndex])
+}
