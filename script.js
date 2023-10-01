@@ -54,7 +54,7 @@ let questions = [
           a: "2. ||", 
           choices: [{choice: "1. +="}, {choice: "2. ||"}, {choice: "3. *="}, {choice: "4. ="}]
     },
-]
+    ]
 
 let setTime = function () {
     timeleft = 30;
@@ -74,7 +74,7 @@ let timercheck = setInterval(function() {
     }
 
     }, 1000)
-}
+    }
 
 let startGame = function() {
     containerStartEl.classList.add("hide");
@@ -89,4 +89,72 @@ let startGame = function() {
   let setQuestion = function() {
     resetAnswers()
     displayQuestion(arrayShuffledQuestions[QuestionIndex])
-}
+    }
+
+    let resetAnswers = function() {
+    while (answerbuttonsEl.firstChild) {
+        answerbuttonsEl.removeChild(answerbuttonsEl.firstChild)
+    };
+    };
+
+    let displayQuestion = function(index) {
+    questionEl.innerText = index.q
+    for (let i = 0; i < index.choices.length; i++) {
+        let answerbutton = document.createElement("button")
+        answerbutton.innerText = index.choices[i].choice
+        answerbutton.classList.add("btn")
+        answerbutton.classList.add("answerbtn")
+        answerbutton.addEventListener("click", answerCheck)
+        answerbuttonsEl.appendChild(answerbutton)
+        }
+    };
+
+    let answerCorrect = function() {
+    if (correctEl.className = "hide") {
+            correctEl.classList.remove("hide")
+            correctEl.classList.add("banner")
+            wrongEl.classList.remove("banner")
+            wrongEl.classList.add("hide")
+            }
+    };
+
+    let answerWrong = function() {
+        if (wrongEl.className = "hide") {
+            wrongEl.classList.remove("hide")
+            wrongEl.classList.add("banner")
+            correctEl.classList.remove("banner")
+            correctEl.classList.add("hide")
+        }
+    }
+    let answerCheck = function(event) {
+        let selectedanswer = event.target
+            if (arrayShuffledQuestions[QuestionIndex].a === selectedanswer.innerText){
+                answerCorrect()
+                score = score + 7
+            }
+
+            else {
+              answerWrong()
+              score = score - 1;
+              timeleft = timeleft - 3;
+          };
+
+          QuestionIndex++
+            if  (arrayShuffledQuestions.length > QuestionIndex + 1) {
+                setQuestion()
+            }   
+            else {
+               gameover = "true";
+               showScore();
+                }
+    }
+    let showScore = function () {
+        containerQuestionEl.classList.add("hide");
+        containerEndEl.classList.remove("hide");
+        containerEndEl.classList.add("show");
+
+        let scoreDisplay = document.createElement("p");
+        scoreDisplay.innerText = ("Your final score is " + score + "!");
+        containerScoreEl.appendChild(scoreDisplay);
+    } 
+    
