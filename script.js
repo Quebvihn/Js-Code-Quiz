@@ -6,16 +6,16 @@ let formInitials = document.getElementById("initials-form")
 let containerHighScoresEl = document.getElementById("high-score-container")
 let ViewHighScoreEl = document.getElementById("view-high-scores")
 let listHighScoreEl = document.getElementById("high-score-list")
-let correctEl = document.getElementById("correct")
+let correctEl = document.getElementById("right")
 let wrongEl = document.getElementById("wrong")
+let questionEl = document.getElementById("question")
+let answerbuttonsEl = document.getElementById("answers")
+let timerEl = document.querySelector("#timer");
 
 let btnStartEl = document.querySelector("#start-game");
 let btnGoBackEl = document.querySelector("#start-again")
 let btnClearScoresEl = document.querySelector("#clear-scores")
 
-let questionEl = document.getElementById("question")
-let answerbuttonsEl = document.getElementById("answer-buttons")
-let timerEl = document.querySelector("#timer");
 
 
 
@@ -39,5 +39,9 @@ let questions = [
     { q: "What does DOM stand for?", 
           a: "2. Document Object Model", 
           choices: [{choice: "1. Do Overnight Modules"}, {choice: "2. Document Object Model"}, {choice: "3. Divas Obviously Model"}, {choice: "4. Do Oo Mo"}]
+    },
+    { q: "In JavaScript, which of the following is NOT an assignment operator?", 
+          a: "2. ||", 
+          choices: [{choice: "1. +="}, {choice: "2. ||"}, {choice: "3. *="}, {choice: "4. ="}]
     },
 ]

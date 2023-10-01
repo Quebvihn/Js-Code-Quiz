@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Js Code Quiz</title>
+    <title>JS Code Quiz</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,13 +15,29 @@
     </header>
 
     <div id="start-container" class="show">
-        <div class="">
+        <div class="start container">
             <h1>Coding Quiz Challenge</h1>
             <p>Try to answer the following code-related questions within the time limit.
                 Keep in mind that incorrect answers will penalize your  time by 10 seconds!
             </p>
             <button class="btn startend" id="start-game">Start Quiz</button>
         </div>
+    </div>
+
+    <div id="qs-container" class="hide">
+        <div class="container questions">
+            <div id="question"></div>
+            <div id="answers" class="btn-grid"></div>
+        </div>
+    </div>
+
+
+
+    <div class="hide" id="right">
+        <h2>Correct :)!</h2>
+    </div>
+    <div class="hide" id="wrong">
+        <h2>Wrong :( </h2>
     </div>
 
 
