@@ -1,6 +1,6 @@
-let containerQuestionEl = document.getElementById("qs-container");
-let containerStartEl = document.getElementById("start-container");
-let containerEndEl = document.getElementById("end-container")
+let questionsEl = document.getElementById("qs-container");
+let containerStartEl = document.getElementById("start");
+let containerEndEl = document.getElementById("end")
 let containerScoreEl = document.getElementById("scores")
 let formInitials = document.getElementById("initials-form")
 let containerHighScoresEl = document.getElementById("high-score-container")
@@ -106,8 +106,8 @@ let setTime = function () {
 let startGame = function () {
     containerStartEl.classList.add("hide");
     containerStartEl.classList.remove("show");
-    containerQuestionEl.classList.remove("hide");
-    containerQuestionEl.classList.add("show");
+    questionsEl.classList.remove("hide");
+    questionsEl.classList.add("show");
     arrayShuffledQuestions = questions.sort(() => Math.random() - 0.5)
     setTime()
     setQuestion()
@@ -157,12 +157,11 @@ let answerCheck = function (event) {
     let selectedanswer = event.target
     if (arrayShuffledQuestions[QuestionIndex].a === selectedanswer.innerText) {
         answerCorrect()
-        score = score + 7
+        score = timeleft 
     }
 
     else {
         answerWrong()
-        score = score - 1;
         timeleft = timeleft - 3;
     };
 
@@ -176,7 +175,7 @@ let answerCheck = function (event) {
     }
 }
 let showScore = function () {
-    containerQuestionEl.classList.add("hide");
+    questionsEl.classList.add("hide");
     containerEndEl.classList.remove("hide");
     containerEndEl.classList.add("show");
 
@@ -188,7 +187,7 @@ let createHighScore = function(event) {
     event.preventDefault() 
     let initials = document.querySelector("#initials").value;
     if (!initials) {
-      alert("Enter your intials!");
+      alert("Enter your intials");
       return;
     }
 
@@ -236,4 +235,59 @@ let createHighScore = function(event) {
             HighScores.push(LoadedHighScores[i]);
             
         }
-    }  
+    } 
+
+    let displayHighScores = function() {
+
+        containerHighScoresEl.classList.remove("hide");
+        containerHighScoresEl.classList.add("show");
+        gameover = "true"
+
+        if (containerEndEl.className = "show") {
+            containerEndEl.classList.remove("show");
+            containerEndEl.classList.add("hide");
+            }
+        if (containerStartEl.className = "show") {
+            containerStartEl.classList.remove("show");
+            containerStartEl.classList.add("hide");
+            }
+            
+        if (questionsEl.className = "show") {
+            questionsEl.classList.remove("show");
+            questionsEl.classList.add("hide");
+            }
+
+        if (correctEl.className = "show") {
+            correctEl.classList.remove("show");
+            correctEl.classList.add("hide");
+        }
+
+        if (wrongEl.className = "show") {
+            wrongEl.classList.remove("show");
+            wrongEl.classList.add("hide");
+            }
+        
+    }
+ 
+    let clearScores = function () {
+        HighScores = [];
+
+        while (listHighScoreEl.firstChild) {
+            listHighScoreEl.removeChild(listHighScoreEl.firstChild);
+        }
+
+        localStorage.clear(HighScores);
+
+    } 
+
+    loadHighScore()
+        
+      btnStartEl.addEventListener("click", startGame)
+
+      formInitials.addEventListener("submit", createHighScore)
+ 
+      ViewHighScoreEl.addEventListener("click", displayHighScores)
+
+      btnGoBackEl.addEventListener("click", renderStartPage)
+    
+      btnClearScoresEl.addEventListener("click", clearScores)
