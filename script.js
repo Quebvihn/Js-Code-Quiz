@@ -287,6 +287,6 @@ let createHighScore = function(event) {
  
       viewScoresEl.addEventListener("click", displayHighScores)
 
-      btnGoBackEl.addEventListener("click", renderStartPage)
+      btnGoBackEl.addEventListener("click", startPage)
     
       btnClearScoresEl.addEventListener("click", clearScores)

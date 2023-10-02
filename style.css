@@ -106,8 +106,7 @@ h1 {
 #question {
   color: var(--primary);
   text-align: left;
-  font-size: 3.0rem;
-  font-weight: bold;
+  font-size: 20px;
 }
 
 #high-score {
@@ -132,11 +131,6 @@ h1 {
     cursor: pointer;
 }
 
-.btn:active {
-    border: none;
-    outline: none;
-    box-shadow: 0 0 grey;
-}
 
 .btn:focus {
     outline: none;
@@ -155,9 +149,9 @@ h1 {
 }
 
 .answerbtn {
-   width: 50%;
+   width: 30%;
    text-align: left;
-   font-size: 3.0vw;
+   font-size: 40px;
 }
 
 
