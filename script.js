@@ -19,7 +19,6 @@ let btnClearScoresEl = document.querySelector("#clear-scores")
 let score = 0;
 let timeleft;
 let gameover
-timerEl.innerText = 0;
 
 let HighScores = [];
 

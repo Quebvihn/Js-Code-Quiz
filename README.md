@@ -16,7 +16,7 @@ The JavaScript Coding Quiz is a web application designed to test your knowledge 
 
 ## Demo
 
-You can try the live demo of the JavaScript Coding Quiz here: [Demo Link](https://your-demo-link.com)
+You can try the live demo of the JavaScript Coding Quiz here: https://quebvihn.github.io/Js-Code-Quiz/
 
 
 ## Usage

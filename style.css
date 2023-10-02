@@ -6,7 +6,7 @@
     --primary: #ffffff;
     --secondary: #cf0505;
     --tertiary: rgb(160, 5, 5);
-    font-size: 60%;
+    font-size: 80%;
 }
 
 body {
@@ -47,7 +47,7 @@ header h4 {
 .container {
     padding: 20px;
     flex-direction: column;
-    width: 50%;
+    width: 40%;
     margin: auto;
 }
 
