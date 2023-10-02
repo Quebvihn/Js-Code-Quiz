@@ -4,7 +4,7 @@ let containerEndEl = document.getElementById("end")
 let containerScoreEl = document.getElementById("scores")
 let formInitials = document.getElementById("initials-form")
 let containerHighScoresEl = document.getElementById("high-score-container")
-let ViewHighScoreEl = document.getElementById("view-high-scores")
+let viewScoresEl = document.getElementById("view-high-scores")
 let listHighScoreEl = document.getElementById("high-score-list")
 let correctEl = document.getElementById("right")
 let wrongEl = document.getElementById("wrong")
@@ -61,7 +61,7 @@ let questions = [
     },
 ]
 
-let renderStartPage = function () {
+let startPage = function () {
     containerHighScoresEl.classList.add("hide")
     containerHighScoresEl.classList.remove("show")
     containerStartEl.classList.remove("hide")
@@ -285,7 +285,7 @@ let createHighScore = function(event) {
 
       formInitials.addEventListener("submit", createHighScore)
  
-      ViewHighScoreEl.addEventListener("click", displayHighScores)
+      viewScoresEl.addEventListener("click", displayHighScores)
 
       btnGoBackEl.addEventListener("click", renderStartPage)
     
